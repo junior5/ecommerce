@@ -1,0 +1,24 @@
+<div class="row card-deck">
+	<div class="col-lg-4 col-md-6 mb-4" *ngFor="let produto of produtos">
+		<div class="card produto-card text-center">
+			<div class="card-header">
+				<h4>{{ produto.nome }}</h4>
+				<p>{{ produto.descricao }}</p>
+			</div>
+			<div class="card-body">
+				<a href="#"><img class="card-img-top produto-imagem" src={{produto.urlImagem}} alt=""></a>
+				<h5 class="card-title">${{ produto.custoCompra }}</h5>
+				<div class="row">
+					<div class="col-4 padding-0">
+						<input type="number" min="0" class="form-control">
+					</div>
+					<div class="col-6 padding-0">
+						<button class="btn btn-primary">
+							Adicionar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -21,7 +21,6 @@ import lombok.Setter;
 public class Produto {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "O nome do produto é obrigatório")
