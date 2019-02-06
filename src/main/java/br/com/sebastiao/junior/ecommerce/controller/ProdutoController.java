@@ -17,8 +17,8 @@ public class ProdutoController {
 	private ProdutoService produtoService;
 	
 	@GetMapping({"", "/"})
-	public Iterable<Produto> listarTodosProdutos() {
-		return produtoService.listarTodosProdutos();
+	public Iterable<Produto> listarTodosProdutosComCustoCompra() {
+		return produtoService.listarTodosProdutosComCustoCompra();
 	}
 	
 	@GetMapping("/{id}")

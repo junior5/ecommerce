@@ -5,7 +5,7 @@ import lombok.NonNull;
 
 public interface ProdutoService {
 
-	Iterable<Produto> listarTodosProdutos();
+	Iterable<Produto> listarTodosProdutosComCustoCompra();
 	
 	Produto buscarPorId(@NonNull Long id);
 }
