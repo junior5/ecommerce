@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { ProdutosComponent } from './ecommerce/produtos/produtos.component';
 import { EcommerceService } from './ecommerce/services/ecommerce.service';
+import { CarrinhoComprasComponent } from './ecommerce/carrinho-compras/carrinho-compras.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcommerceComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    CarrinhoComprasComponent
   ],
   imports: [
     BrowserModule,

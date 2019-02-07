@@ -8,7 +8,7 @@
 		<div id="navbarResponsive" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#" (click)="reset()">Início
+					<a class="nav-link" href="#">Início
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
@@ -16,11 +16,11 @@
 		</div>
 	</div>
 </nav>
-
-<body>
-	<div class="row">
-		<div class="col-md-9">
-			<app-produtos #produtosComponent></app-produtos>
-		</div>
+<div class="row bg-white pt-4 p-2 rounded box-shadow">
+	<div class="col-md-9">
+		<app-produtos #produtosComponent></app-produtos>
 	</div>
-</body>
+	<div class="col-md-3">
+		<app-carrinho-compras #carrinhoComponent></app-carrinho-compras>
+	</div>
+</div>

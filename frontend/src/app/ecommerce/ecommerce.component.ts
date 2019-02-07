@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
 
 @Component({
   selector: 'app-ecommerce',
@@ -12,6 +13,9 @@ export class EcommerceComponent implements OnInit {
 
   @ViewChild('produtosComponent')
   produtosComponent: ProdutosComponent;
+
+  @ViewChild('carrinhoComponent')
+  carrinhoComponent: CarrinhoComprasComponent;
 
   constructor() {
   }
