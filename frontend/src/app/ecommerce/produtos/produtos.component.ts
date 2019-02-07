@@ -9,7 +9,7 @@ import { EcommerceService } from '../services/ecommerce.service';
 })
 export class ProdutosComponent implements OnInit {
 
-	produtos: Produto[] = [];
+	itens:  Array<{ produto: Produto,  quantidade: number }> = [];
 
 	constructor(
 		private ecommerceService: EcommerceService
@@ -21,13 +21,24 @@ export class ProdutosComponent implements OnInit {
 	}
 
 	limparProdutos() {
-		this.produtos = [];
+		this.itens = [];
 	}
 
 	listarTodosProdutos() {
 		this.ecommerceService.listarTodosProdutos()
-			.subscribe((produtos: any[]) => {
-				this.produtos = produtos;
-			}, (error) => console.error(error));
+			.toPromise()
+			.then((produtos: any[]) => {
+				produtos.forEach((_produto: Produto) => {
+					this.itens.push({ produto: _produto, quantidade: 0 })
+				});
+			}).catch((error: any) => console.error(error));
+	}
+
+	adicionarAoCarrinho(item: any) {
+		this.ecommerceService.adicionarItemAoCarrinho(item)
+			.toPromise()
+			.then(() => {
+				this.ecommerceService.atualizarCarrinho();
+			}).catch((error: any) => console.error(error));
 	}
 }

@@ -7,6 +7,7 @@ import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { ProdutosComponent } from './ecommerce/produtos/produtos.component';
 import { EcommerceService } from './ecommerce/services/ecommerce.service';
 import { CarrinhoComprasComponent } from './ecommerce/carrinho-compras/carrinho-compras.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CarrinhoComprasComponent } from './ecommerce/carrinho-compras/carrinho-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EcommerceService],
   bootstrap: [AppComponent]
