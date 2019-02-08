@@ -52,11 +52,14 @@ public class CarrinhoServiceImpl implements CarrinhoService {
 		
 		carrinho.getItens().stream().forEach(e -> {
 			Double rateio = valoresAdicionais.getDespesasTotais() / carrinho.getItens().size();
-			e.setPrecoVenda(rateio + e.getProduto().getCustoCompra()); 
+			Double precoVenda = rateio + e.getProduto().getCustoCompra();
 			
 			if (!ObjectUtils.isEmpty(valoresAdicionais.getMargemLucro())) {
-				e.setPrecoVenda(e.getPrecoVenda() * (1 + valoresAdicionais.getMargemLucro() / 100));
+				Double margem = 1 + (valoresAdicionais.getMargemLucro() / 100);
+				precoVenda = precoVenda * margem;
 			}
+			
+			e.setPrecoVenda(precoVenda); 
 		});
 		
 		atualizarTotalCarrinho();

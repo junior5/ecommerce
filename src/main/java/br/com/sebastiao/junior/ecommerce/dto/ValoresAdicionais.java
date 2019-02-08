@@ -11,5 +11,5 @@ public class ValoresAdicionais {
 
 	private Double despesasTotais;
 	
-	private Integer margemLucro;
+	private Double margemLucro;
 }
