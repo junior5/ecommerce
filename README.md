@@ -26,5 +26,4 @@ database: ecommercedb
 username: sa
 password: (sem senha).
 
-ER:
 ![alt text](http://oi66.tinypic.com/s43sr4.jpg)
