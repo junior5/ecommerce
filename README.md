@@ -3,6 +3,7 @@
 Plataforma de loja virtual básica.
 
 ### Tecnologias Utilizadas:
+* Maven
 * Spring Boot 2.1.2
 * Spring Framework
 * Spring Data JPA
@@ -21,3 +22,6 @@ Desenvolvido utilizando o [VSCODE](https://code.visualstudio.com/) - Visual Stud
 ### Base de Dados
 Utilizado o SGBD [H2](http://www.h2database.com/html/main.html) Database.
 Script utilizado para testes está na pasta "sql".
+database: ecommercedb
+username: sa
+password: (sem senha).
