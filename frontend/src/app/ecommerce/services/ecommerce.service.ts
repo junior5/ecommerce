@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Carrinho } from '../models/carrinho.model';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class EcommerceService {
@@ -8,29 +9,37 @@ export class EcommerceService {
     private URI_PRODUTO = "/produto";
     private URI_CARRINHO = "/carrinho";
 
-    private subject = new Subject<any>();
     private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+    private subject = new Subject<any>();
 
-    constructor(private http: HttpClient) {
-    }
+    constructor(
+        private http: HttpClient
+    ) { }
 
     listarTodosProdutos() {
         return this.http.get(this.URI_PRODUTO);
     }
 
-    adicionarItemAoCarrinho(item: any) {
+    adicionarItemAoCarrinhoCompras(item: any) {
         return this.http.post(this.URI_CARRINHO, JSON.stringify(item), this.httpOptions);
     }
 
-    atualizarCarrinho() {
+    buscarCarrinhoCompras() {
         return this.http.get(this.URI_CARRINHO)
             .toPromise()
-            .then((carrinho: any) => {
-                this.subject.next(carrinho);
+            .then((carrinho: Carrinho) => {
+                return Promise.resolve(carrinho);
             });
     }
 
-    visualizarCarrinho() {
+    carrinhoComprasAtualizado(): Observable<any> {
         return this.subject.asObservable();
+    }
+
+    produtoSelecionado() {
+        this.buscarCarrinhoCompras()
+            .then((carrinho: Carrinho) => {
+                this.subject.next(carrinho);
+            });
     }
 }

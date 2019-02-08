@@ -1,21 +1,29 @@
-<div class="row card-deck">
-	<div class="col-lg-4 col-md-6 p-0 mb-4" *ngFor="let item of itens">
-		<div class="card produto-card text-center">
-			<div class="card-header">
-				<h4>{{ item.produto.nome }}</h4>
-				<p>{{ item.produto.descricao }}</p>
-			</div>
-			<div class="card-body">
-				<a href="#"><img class="card-img-top produto-imagem" src={{item.produto.urlImagem}} alt=""></a>
-				<h5 class="card-title p-2">R$ {{ item.produto.custoCompra }}</h5>
-				<div class="row">
-					<div class="col-5 padding-0">
-						<input type="number" min="0" value="0" class="form-control" [(ngModel)]="item.quantidade">
+<div class="card text-dark bg-light mb-3">
+	<div class="card-header text-center bg-dark text-light">Produtos</div>
+	<div class="card-body">
+		<div class="alert alert-warning" role="alert" *ngIf="itens.length == 0">
+			Nenhum produto cadastrado!
+		</div>
+		<div class="row">
+			<div class="col-lg-4 mb-4" *ngFor="let item of itens">
+				<div class="card produto-card text-center">
+					<div class="card-header">
+						<h4>{{ item.produto.nome }}</h4>
+						<p>{{ item.produto.descricao }}</p>
 					</div>
-					<div class="col-6 padding-0">
-						<button class="btn btn-primary" (click)="adicionarAoCarrinho(item)">
-							Adicionar
-						</button>
+					<div class="card-body">
+						<img class="card-img-top produto-imagem" src={{item.produto.urlImagem}} alt="" width="50" height="50"> 
+						<h5 class="card-title p-2">Custo de compra: {{ item.produto.custoCompra | currency:'BRL'}}</h5>
+						<div class="row">
+							<div class="col-5 padding-0">
+								<input type="number" min="1" value="1" class="form-control" [(ngModel)]="item.quantidade">
+							</div>
+							<div class="col-6 padding-0">
+								<button class="btn bg-info text-light" (click)="adicionarAoCarrinho(item)">
+									Adicionar
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

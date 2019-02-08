@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../models/produto.model';
 import { EcommerceService } from '../services/ecommerce.service';
+import { Item } from '../models/item.model';
 
 @Component({
 	selector: 'app-produtos',
@@ -10,7 +11,7 @@ import { EcommerceService } from '../services/ecommerce.service';
 export class ProdutosComponent implements OnInit {
 
 	itens:  Array<{ produto: Produto,  quantidade: number }> = [];
-
+	
 	constructor(
 		private ecommerceService: EcommerceService
 	) { }
@@ -34,11 +35,13 @@ export class ProdutosComponent implements OnInit {
 			}).catch((error: any) => console.error(error));
 	}
 
-	adicionarAoCarrinho(item: any) {
-		this.ecommerceService.adicionarItemAoCarrinho(item)
-			.toPromise()
-			.then(() => {
-				this.ecommerceService.atualizarCarrinho();
-			}).catch((error: any) => console.error(error));
+	adicionarAoCarrinho(item: Item) {
+		if (item.quantidade > 0) {
+			this.ecommerceService.adicionarItemAoCarrinhoCompras(item)
+				.toPromise()
+				.then(() => {
+					this.ecommerceService.produtoSelecionado();
+				}).catch((error: any) => console.error(error));
+		}
 	}
-}
+} 
