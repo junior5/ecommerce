@@ -25,5 +25,12 @@ Script utilizado para testes está na pasta "sql".
 database: ecommercedb
 username: sa
 password: (sem senha).
+http://localhost:8080/h2-console
 
 ![alt text](http://oi66.tinypic.com/s43sr4.jpg)
+
+![alt text](https://i.ibb.co/znJyXML/ecommerce.png)
+
+### Deploy
+Backend: mvn spring-boot:run
+Frontend cd frontend; npm start
