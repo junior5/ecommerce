@@ -11,4 +11,6 @@ public class Item {
 	private Produto produto;
 	  
 	private Integer quantidade;
+	
+	private Double precoVenda;
 }

@@ -11,6 +11,9 @@ import { Item } from '../models/item.model';
 export class ProdutosComponent implements OnInit {
 
 	itens:  Array<{ produto: Produto,  quantidade: number }> = [];
+
+	despesasTotais: number = null;
+	margemLucro: number = null;
 	
 	constructor(
 		private ecommerceService: EcommerceService
@@ -30,7 +33,7 @@ export class ProdutosComponent implements OnInit {
 			.toPromise()
 			.then((produtos: any[]) => {
 				produtos.forEach((_produto: Produto) => {
-					this.itens.push({ produto: _produto, quantidade: 0 })
+					this.itens.push({ produto: _produto, quantidade: 1 })
 				});
 			}).catch((error: any) => console.error(error));
 	}
@@ -40,7 +43,8 @@ export class ProdutosComponent implements OnInit {
 			this.ecommerceService.adicionarItemAoCarrinhoCompras(item)
 				.toPromise()
 				.then(() => {
-					this.ecommerceService.produtoSelecionado();
+					this.ecommerceService.atualizarPrecoVendaItens()
+						.then(() => this.ecommerceService.produtoSelecionado());
 				}).catch((error: any) => console.error(error));
 		}
 	}

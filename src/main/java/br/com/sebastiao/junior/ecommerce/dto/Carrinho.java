@@ -18,13 +18,4 @@ public class Carrinho {
 	private List<Item> itens = new ArrayList<Item>();
 
 	private Double total = 0.0;
-	
-	public void adicionarItem(Item item) {
-	    itens.add(item);
-	    total += item.getProduto().getCustoCompra() * item.getQuantidade();
-	}
-	
-	public Integer getTotalDeItens() {
-	    return itens.size();
-	}
 }

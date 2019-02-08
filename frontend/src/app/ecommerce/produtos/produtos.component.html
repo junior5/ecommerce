@@ -13,7 +13,8 @@
 					</div>
 					<div class="card-body">
 						<img class="card-img-top produto-imagem" src={{item.produto.urlImagem}} alt="" width="50" height="50"> 
-						<h5 class="card-title p-2">Custo de compra: {{ item.produto.custoCompra | currency:'BRL'}}</h5>
+						<h6 class="card-title mt-2 mb-0">Custo de Compra:</h6>
+						<h5 class="card-title">{{ item.produto.custoCompra | currency:'BRL'}}</h5>
 						<div class="row">
 							<div class="col-5 padding-0">
 								<input type="number" min="1" value="1" class="form-control" [(ngModel)]="item.quantidade">

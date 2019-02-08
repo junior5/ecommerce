@@ -1,21 +1,24 @@
 <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
 	<div class="card-header text-center bg-dark text-light">Meu Carrinho</div>
 	<div class="card-body">
-		<ul class="list-group">
+		<div class="alert alert-warning" role="alert" *ngIf="carrinho.itens.length == 0">
+			Carrinho Vazio!
+		</div>
+		<ul class="list-group" *ngIf="carrinho.itens.length > 0">
 			<li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of carrinho.itens">
 				{{ item.produto.nome }}
-				<span class="badge badge-info badge-pill">{{ item.quantidade }}</span>
+				<span class="badge badge-danger">{{ item.quantidade }} </span>
 			</li>
 			<hr>
 		</ul>
 		<div class="form-group">
 			<label for="despesasTotais">Despesas Totais:</label>
-			<input type="text" class="form-control" #despesasTotais [disabled]="carrinho.total == 0">
+			<input type="text" class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="despesasTotais" [disabled]="carrinho.total == 0">
 		</div>
 		<hr>
 		<div class="form-group">
 			<label for="margemLucro">Margem de Lucro:</label>
-			<input type="text" class="form-control" #margemLucro [disabled]="carrinho.total == 0">
+			<input type="text" class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="margemLucro" [disabled]="carrinho.total == 0">
 		</div>
 		<hr>
 		<h5 class="card-title">Total: {{ carrinho.total | currency:'BRL' }}</h5>
