@@ -32,5 +32,5 @@ http://localhost:8080/h2-console
 ![alt text](https://i.ibb.co/znJyXML/ecommerce.png)
 
 ### Deploy
-Backend: mvn spring-boot:run
+Backend: mvn spring-boot:run<br/>
 Frontend cd frontend; npm start
