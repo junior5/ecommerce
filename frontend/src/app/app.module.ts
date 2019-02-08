@@ -8,6 +8,11 @@ import { ProdutosComponent } from './ecommerce/produtos/produtos.component';
 import { EcommerceService } from './ecommerce/services/ecommerce.service';
 import { CarrinhoComprasComponent } from './ecommerce/carrinho-compras/carrinho-compras.component';
 import { FormsModule } from '@angular/forms';
+import { LOCALE_ID, } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
@@ -22,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [EcommerceService],
+  providers: [EcommerceService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
