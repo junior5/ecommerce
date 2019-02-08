@@ -25,3 +25,5 @@ Script utilizado para testes está na pasta "sql".
 database: ecommercedb
 username: sa
 password: (sem senha).
+
+![alt text](https://drive.google.com/file/d/1NwJ0lQ0sBfQhgDPGaTlgaymYY-ooU2hN/view)
