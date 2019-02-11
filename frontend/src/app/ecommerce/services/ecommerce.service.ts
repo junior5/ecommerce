@@ -52,13 +52,19 @@ export class EcommerceService {
     }
 
     atualizarPrecoVendaItens(): Promise<any> {
+        let data: any = {
+            despesasTotais: this.toDoubleFormat(this.despesasTotais),
+            margemLucro: this.toDoubleFormat(this.margemLucro)
+        };
+
         return this.http.post(
             this.URI_CARRINHO + "/atualizarPrecoVendaItens",
-            JSON.stringify({
-                despesasTotais: this.despesasTotais,
-                margemLucro: this.margemLucro
-            }),
+            JSON.stringify(data),
             this.httpOptions
         ).toPromise();
+    }
+
+    toDoubleFormat(value: any): any {
+        return value ? value.toString().replace(",",".") : null;
     }
 }

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LOCALE_ID, } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -25,7 +26,8 @@ registerLocaleData(localePt, 'pt-BR');
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [EcommerceService, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

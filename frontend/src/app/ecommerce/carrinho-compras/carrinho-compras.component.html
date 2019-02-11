@@ -13,12 +13,12 @@
 		</ul>
 		<div class="form-group">
 			<label for="despesasTotais">Despesas Totais:</label>
-			<input type="text" class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="despesasTotais" [disabled]="carrinho.total == 0">
+			<input type="text" mask='0*,00' [dropSpecialCharacters]="false" prefix="R$ "  class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="despesasTotais" [disabled]="carrinho.total == 0">
 		</div>
 		<hr>
 		<div class="form-group">
 			<label for="margemLucro">Margem de Lucro:</label>
-			<input type="text" class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="margemLucro" [disabled]="carrinho.total == 0">
+			<input type="text" mask='0*,00' [dropSpecialCharacters]="false" sufix=" %" class="form-control" (change)="atualizarPrecoVendaItens()" [(ngModel)]="margemLucro" [disabled]="carrinho.total == 0">
 		</div>
 		<hr>
 		<h5 class="card-title">Total: {{ carrinho.total | currency:'BRL' }}</h5>
