@@ -27,10 +27,6 @@ username: sa<br/>
 password: (sem senha).<br/>
 http://localhost:8080/h2-console <br/>
 
-![alt text](http://oi66.tinypic.com/s43sr4.jpg)
-
-![alt text](https://i.ibb.co/znJyXML/ecommerce.png)
-
 ### Deploy
 **Backend**: mvn spring-boot:run<br/>
 **Frontend** cd frontend; npm start
